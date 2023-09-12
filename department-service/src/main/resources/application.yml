@@ -1,0 +1,6 @@
+spring:
+  config:
+    import: "optional:configserver:http://localhost:8088"
+    #Here optional gives 2 options--> take it from config-server or localhost
+  application:
+    name: department-service

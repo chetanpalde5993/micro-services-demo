@@ -1,0 +1,26 @@
+server:
+  port: 8081
+
+eureka:
+  client:
+    serviceUrl:
+      defaultZone: http://localhost:8761/eureka/
+
+management:
+  tracing:
+    sampling:
+      probability: 1.0
+
+spring:
+  cloud:
+    gateway:
+      routes:
+        - id: employee-service
+          uri: lb://employee-service #Here lb is for load balancer
+          predicates:
+            - Path=/employees/**   #Everything which starts with employee
+
+        - id: department-service
+          uri: lb://department-service #Here lb is for load balancer
+          predicates:
+            - Path=/departments/**

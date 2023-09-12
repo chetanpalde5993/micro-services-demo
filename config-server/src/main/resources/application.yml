@@ -1,0 +1,18 @@
+server:
+  port:
+    8088
+
+spring:
+  profiles:
+    active: native #native means don't look for git. Configuration available here only
+  application:
+    name: config-server
+  cloud:
+    config:
+      server:
+        bootstrap: true
+
+eureka:
+  client:
+    serviceUrl:
+      defaultZone: http://localhost:8761/eureka/
